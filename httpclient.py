@@ -108,7 +108,8 @@ class HTTPClient(object):
         request = (
             f'GET {path} HTTP/1.1\r\n'
             f'Host: {host}\r\n'
-            f'Accept-Charset: UTF-8\r\n'  # i know there isnt a need for f string but it looks nicer like this
+            f'User-Agent: MoreFunAssignment\r\n'
+            f'Accept-Charset: UTF-8\r\n'  # I know there isnt a need for f string but it looks nicer like this
             f'Connection: close\r\n\r\n')
         self.sendall(request)
 
@@ -160,6 +161,7 @@ class HTTPClient(object):
         # Args
         request = (f'POST {path} HTTP/1.1\r\n'
                    f'Host: {host}\r\n'
+                   f'User-Agent: MoreFunAssignment\r\n'
                    f'Content-Type: application/x-www-form-urlencoded\r\n'
                    f'Content-Length: {str(len(args))}\r\n'
                    f'Connection: close\r\n\r\n'
