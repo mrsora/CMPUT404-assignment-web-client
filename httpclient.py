@@ -113,10 +113,11 @@ class HTTPClient(object):
             f'Connection: close\r\n\r\n')
         self.sendall(request)
 
-        # get response
+        # get response AND PRINT IT
         response = self.recvall(self.socket)
         code = self.get_code(response)
         body = self.get_body(response)
+        print(f'{code}\n{self.get_headers(response)}\n\n{body}')
 
         # close connection and return response
         self.close()
@@ -168,10 +169,11 @@ class HTTPClient(object):
                    f'{args}')
         self.sendall(request)
 
-        # get response
+        # get response AND PRINT IT
         response = self.recvall(self.socket)
         code = self.get_code(response)
         body = self.get_body(response)
+        print(f'{code}\n{self.get_headers(response)}\n\n{body}')
 
         # close connection and return response
         self.close()
